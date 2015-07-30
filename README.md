@@ -23,3 +23,9 @@ I would like to change this to be configurable so I can set static IPs.
 * A version of linux that supports network namespaces (ie, any distro from recent years)
 * root
 
+## To Do
+
+* Make a partner utility to use overlayfs 
+* Make this script more robust 
+* Make a web wrapper around this so I can launch game servers from the web, straight in to a namespace
+* ??? 
