@@ -42,7 +42,7 @@ function contain_run() {
 function contain_destroy() {
     [[ "$(contain_exists "$1")" == 0 ]] && echo "ip netns $1 does not exist, nothing to destroy" && exit 1
     ip netns del $1 || echo "Could not delete namespace"
-    ip link delete dev "$1"i || echo "Could not delete veth device"
+    ip link delete dev "$1"e || echo "Could not delete veth device"
 }
 
 # This should be made smarter; not sure if anything in normal system operation would create a netns. Maybe LXC etc would interfere? 
