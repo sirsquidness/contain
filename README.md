@@ -14,7 +14,9 @@ A bash script to make managing and using network namespaces easier.
 
 
 At time of writing, we are using DHCP to assign IP addresses to the internal namespace interface, but 
-I would like to change this to be configurable so I can set static IPs. 
+I would like to change this to be configurable so I can set static IPs. Because we don't give the 
+container a new root filesystem, its /etc/hostname will be the same as the main host, so the DHCP 
+request for the container will will send with the same hostname.
 
 
 ## Requirements
@@ -28,4 +30,6 @@ I would like to change this to be configurable so I can set static IPs.
 * Make a partner utility to use overlayfs 
 * Make this script more robust 
 * Make a web wrapper around this so I can launch game servers from the web, straight in to a namespace
+ *  eg https://github.com/yudai/gotty
+* Make DHCP request in container use a different hostname
 * ??? 
