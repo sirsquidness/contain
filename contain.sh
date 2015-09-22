@@ -30,7 +30,7 @@ function contain_init() {
     ip link set $iface_i netns $netns
     ip netns exec $netns ip link set dev lo up
     ip netns exec $netns ip link set dev $iface_i up
-    ip netns exec $netns dhclient $iface_i
+    ip netns exec $netns pump -i $iface_i -h $1 -d --no-resolvconf --no-ntp --no-setup
 }
 
 function contain_run() {
@@ -52,6 +52,7 @@ function contain_ls() {
 
 function contain_help() {
 echo "hallp!"
+echo "Also remember that this depends on the pump DHCP client"
 exit 1;
 }
 
