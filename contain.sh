@@ -8,6 +8,10 @@
 # Inspired by Bocker, I wanted only the network isolation component, 
 # and needed to not have the rest of the isolation. 
 
+# Requirements:
+# bridge-utils 
+# pump
+
 BRIDGE_IF=br0
 
 function contain_exists() {
@@ -30,7 +34,7 @@ function contain_init() {
     ip link set $iface_i netns $netns
     ip netns exec $netns ip link set dev lo up
     ip netns exec $netns ip link set dev $iface_i up
-    ip netns exec $netns pump -i $iface_i -h $1 -d --no-resolvconf --no-ntp --no-setup
+    ip netns exec $netns pump -i $iface_i -h $1 -d --no-resolvconf --no-ntp 
 }
 
 function contain_run() {
